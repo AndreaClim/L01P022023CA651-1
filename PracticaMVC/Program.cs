@@ -21,6 +21,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("equiposDbConnect
 builder.Services.AddDbContext<usuariosContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("equiposDbConnection")));
 
+builder.Services.AddDbContext<notasDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("notasDbConnection")));
+
 
 var app = builder.Build();
 
