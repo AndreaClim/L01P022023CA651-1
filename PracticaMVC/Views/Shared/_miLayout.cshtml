@@ -1,0 +1,35 @@
+﻿namespace PracticaMVC.Views.Shared
+{
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Auntenticar</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                @if (Context.Session.GetInt32("UsuarioId") != null)
+                {
+                    <li><span>Bienvenido, @Context.Session.GetString("Nombre")</span></li>
+                    <li><a asp-controller="Home" asp-action="Logout" class="text-danger">Cerrar Sesión</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Home" asp-action="Autenticar">Iniciar Sesión</a></li>
+                }
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+</body>
+</html>
+
+}
